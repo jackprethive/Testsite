@@ -1,0 +1,14 @@
+.card {
+    display: flex;
+    justify-content: center;
+  }
+  .card-header{
+    background-color: blueviolet;
+    font-weight: bold;
+    color: white;
+  }
+  .btn{
+    background-color: blueviolet;
+    color: white;
+    font-weight: bold;
+  }
