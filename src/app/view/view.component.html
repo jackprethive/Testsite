@@ -1,7 +1,7 @@
 <br>
 <br>
-
-  <div class="container" style="width: 60%; height: 30; text-align:center;margin: 0; padding:0; align-items: center;">
+<div class="container">
+ <div class="container" style="width: 60%; height: 30; text-align:center;margin: 0; padding:0; align-items: center;">
     <ng-image-slider #nav 
       [images]="imageObject"
       [infinite]="true"
@@ -9,5 +9,33 @@
       [imageSize]="{width: '30%', height: 200}"
       slideImage="1"></ng-image-slider>
   </div>
+</div>
+  <br>
+  <br>
+<div class="container">
+<table>
+  <tr>
+    <th>User Id</th>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Completed</th>
+  </tr>
+  <tr *ngFor="let todo of LstTodo">
+    <td>{{todo.userId}}</td>
+    <td>{{todo.id}}</td>
+    <td>{{todo.title}}</td>
+    <td>{{todo.completed}}</td>
+  </tr>
+</table>
+</div>
+<br>
+<br>
 
 
+<div class="container">
+  <h2>Post</h2>
+<p>id : {{objPosts?.id}}</p>
+<p>UserId : {{objPosts?.userId}}</p>
+<p>Title : {{objPosts?.title}}</p>
+<p>Body : {{objPosts?.body}}</p>
+</div>

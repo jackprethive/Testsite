@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import{ TodoService } from './todo.service';
+import {ToDoModel} from './models'
+import { Posts } from './posts';
 
 @Component({
   selector: 'app-view',
@@ -30,10 +32,25 @@ export class ViewComponent implements OnInit {
     thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/2.jpg',
     title: 'Example two with title.'
 }];
-  constructor() { }
+  constructor( private api:TodoService) { }
+  LstTodo!: ToDoModel[];
+  objPosts!:Posts;
 
   ngOnInit(): void {
-   
+   this.api.apiCall().subscribe((data)=>{
+     console.warn("get api data",data);
+     this.LstTodo = data;
+   });
+
+   var opost = new Posts();
+   opost.body = 'testbody';
+   opost.title = 'testtitle';
+   opost.userId = 5;
+
+   this.api.post(opost).subscribe((data)=>{
+     this.objPosts = data;
+
+   })
   }
   
 }

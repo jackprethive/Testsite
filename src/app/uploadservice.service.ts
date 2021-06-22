@@ -7,8 +7,9 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UploadserviceService {
-  apiUrl = 'https://aa3bc88c8e0b.ngrok.io/api/uploadFile';
-  retriveurl= 'https://aa3bc88c8e0b.ngrok.io/api/getImages';
+  
+  apiUrl = 'https://11c4eb39e4c2.ngrok.io/api/uploadFile';
+  retriveurl= 'https://11c4eb39e4c2.ngrok.io/api/getImages';
   constructor(private http: HttpClient) { }
 
   upload(formData: any){

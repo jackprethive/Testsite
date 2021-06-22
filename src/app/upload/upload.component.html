@@ -31,16 +31,16 @@
         <div *ngIf="fileUpload.status==='success'">
             <img [src]?="fileUpload.filePath" height="200px" />
         </div>
+        <p>{{ error }}</p>
        
+<table>
+        <tr *ngFor="let u of filelist">
 
-        <table id="users">
- <tr *ngFor="let u of filelist">
+          {{u}}
 
-               
+      </tr>
 
-            </tr>
-
-        </table>
+  </table>
 
    </div>
 </div>
