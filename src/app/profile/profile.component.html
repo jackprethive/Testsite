@@ -1,0 +1,66 @@
+
+
+<div class="container" fxLayoutAlign="center center" fxFlexFill  class="main-div">
+    <mat-card class="container">
+    <form  #addprofileForm="ngForm" (submit)="addprofile(addprofileForm)">
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Name</label>
+            <input type="name" [(ngModel)]="name" name="name" class="form-control" id="exampleInputPassword1" required>
+          </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" [(ngModel)]="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+        
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Phone number</label>
+            <input type="phone" [(ngModel)]="phone" name="phone" class="form-control" id="exampleInputPassword1" required>
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" [(ngModel)]="password" name="password" class="form-control" id="exampleInputPassword1" required>
+        </div>
+        
+        <br>
+        <div class="md-form my-0">
+            <select  name="type" [(ngModel)]="type">
+              <option value={{option.value}} *ngFor="let option of options">
+                  {{option.label}}
+              </option>
+            </select>
+         </div>
+         <br>
+         <div class="form-check form-switch">
+            <input class="form-check-input" name="switch" [(ngModel)]="switch"  type="checkbox" id="flexSwitchCheckDefault">
+        
+            <label class="form-check-label"  for="flexSwitchCheckDefault">Default switch checkbox input</label>
+          </div><br>
+          <div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Name</label>
+              <input type="number" [(ngModel)]="name" *ngIf="switch; else switchoff" name="name" class="form-control" id="exampleInputPassword1" required>
+              <ng-template #switchoff>
+               <input type="number" [(ngModel)]="num"  name="num" class="form-control" id="exampleInputPassword1" required>
+
+              </ng-template>
+            </div>
+          </div><br>
+          <div>Gender:</div>
+          <div *ngFor="let gen of gender">
+              <input type="radio" name ="Select Gender" name="selectedGender" [(ngModel)]="selectedGender" value="{{gen}}" (change)="radioChangeHandler($event)">
+              <i>{{gen}}</i>
+    
+          </div>
+<br>
+          <div class="mb-3 form-check">
+            <input type="checkbox"  [(ngModel)]="tc" name="tc" class="form-check-input" id="exampleCheck1" required>
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <br>
+        <button  type="submit" [disabled]="!addprofileForm.valid" class="btn btn-primary">Submit</button>
+      </form>
+    </mat-card>
+</div>
+
+

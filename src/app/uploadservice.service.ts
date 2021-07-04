@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType} from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,9 @@ export class UploadserviceService {
   }
   retrive(){
     return this.http.get(this.retriveurl);
+  }
+  getOneUserDetail(data:any): Observable<any>{
+    return this.http.get<any>(`https://11c4eb39e4c2.ngrok.io/api/getOneUserDetail/?userId=${data}`);
   }
   private getEventMessage(event: HttpEvent<any>, formData:any) {
 

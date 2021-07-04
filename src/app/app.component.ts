@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 
 @Component({
@@ -13,6 +14,8 @@ export class AppComponent {
   urls: Array<String> = [];
   width: Number = 500;
   height: Number = 500;
+  constructor(public _apiService: AuthService) {}
+
 
   ngOnInit() {
    

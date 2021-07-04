@@ -7,17 +7,30 @@ import {UploadserviceService} from '../uploadservice.service'
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
+
+  superPower  = 'wonderwomen';
+  tax = 100;
+success_msg = true;
+  minDate = new Date();
+  maxDate = new Date(2021, 6, 28);
+
+  dateChanged($event: { target: { value: any; }; }){
+    console.log($event.target.value);
+    
+  }
   profileForm!: FormGroup;
   error!: string;
+  dob:any;
   filename:any;
   filelist!:[];
   fileUpload = {status: '', message: '', filePath: ''};
   constructor(private fb: FormBuilder, private uploadserviceService:UploadserviceService ) { }
 
-
   ngOnInit(): void {
+    console.log(this.dob) 
     this.profileForm = this.fb.group({
       file: ['']
+
     });
   }
   onSubmit() {

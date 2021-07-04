@@ -31,6 +31,33 @@
         <div *ngIf="fileUpload.status==='success'">
             <img [src]?="fileUpload.filePath" height="200px" />
         </div>
+
+        <div *ngIf="success_msg; then updated_msg; else error_msg">
+          User added successfully
+        </div>
+        <ng-template #updated_msg>
+          User was Upadated
+        </ng-template>
+
+      <ng-template #error_msg>
+        User was not added
+      </ng-template>
+
+
+   <div [ngSwitch]="superPower">
+     <div *ngSwitchCase="'wonderwomen'">Display Wonder women super power</div>
+     <div *ngSwitchCase="'He man'">Display He man super power</div>
+     <div *ngSwitchCase="'Iron man'">Display Iron man super power</div>
+     <div *ngSwitchCase="'Spider man'">Display Spider man super power</div>
+   </div>
+   <div [ngSwitch]="tax">
+    <div *ngSwitchCase="10">tax is 10</div>
+    <div *ngSwitchCase="20">tax is 10</div>
+    <div *ngSwitchCase="30">tax is 10</div>
+    <div *ngSwitchCase="40">tax is 10</div>
+    <div *ngSwitchDefault>You have 50% discount</div>
+  </div>
+
         <p>{{ error }}</p>
        
 <table>
@@ -41,6 +68,8 @@
       </tr>
 
   </table>
+
+ 
 
    </div>
 </div>
